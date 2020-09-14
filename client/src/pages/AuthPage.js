@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useHttp} from "../hooks/http"
 import useMessage from "../hooks/message"
+import {AuthContext} from "../context/AuthContext"
 
 const AuthPage = () => {
+    const auth = useContext(AuthContext)
     const message = useMessage()
     const {loading, error, request, clearError} = useHttp()
     const [form, setForm] = useState({
@@ -26,6 +28,14 @@ const AuthPage = () => {
         try {
             const data = await request('/api/auth/register', 'POST', {...form})
             message(data.message)
+        } catch (e) {}
+    }
+
+    async function loginHandler() {
+        try {
+            const data = await request('/api/auth/login', 'POST', {...form})
+            const { token, userId } = data
+            auth.login(token, userId)
         } catch (e) {}
     }
 
@@ -65,6 +75,7 @@ const AuthPage = () => {
                         <button
                             className='btn yellow darken-4'
                             style={{ marginRight: 10 }}
+                            onClick={loginHandler}
                             disabled={loading}
                         >
                             Войти
