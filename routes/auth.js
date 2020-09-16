@@ -74,12 +74,12 @@ router.post('/login',
             }
 
             const token = jwt.sign(
-                { userId: user.id },
+                { userId: user._id },
                 config.get('jwtSecret'),
                 { expiresIn: '1h' }
             )
 
-            res.json({ token, userId: user.id })
+            res.json({ token, userId: user._id })
         } catch (e) {
             res.status(500).json({message: 'something wrong'})
         }
