@@ -7,7 +7,7 @@ import LinkCard from "../components/LinkCard";
 
 const DetailPage = () => {
     const {token} = useContext(AuthContext)
-    const { request, loading} = useHttp()
+    const { request, loading } = useHttp()
     const [link, setLink] = useState(null)
     const linkId = useParams().id
 
@@ -29,9 +29,9 @@ const DetailPage = () => {
 
     return (
         <>
-            { !loading && link && <LinkCard link={link} />}
+            { link && <LinkCard link={link} /> }
         </>
-    );
-};
+    )
+}
 
 export default DetailPage;
