@@ -1,0 +1,6 @@
+{
+  "port": "5000",
+  "jwtSecret": "!<3alya",
+  "mongoUri": "mongodb+srv://admin:apojis@cluster0.iia7d.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "http://localhost:5000"
+}
