@@ -49,7 +49,7 @@ const AuthPage = () => {
                 <h1>Reduce a link</h1>
                 <div className="card blue darken-1">
                     <div className="card-content white-text">
-                        <span className="card-title">Авторизация</span>
+                        <span className="card-title">Authorization</span>
                         <div>
                             <div className="input-field">
                                 <input
@@ -84,14 +84,14 @@ const AuthPage = () => {
                             onClick={loginHandler}
                             disabled={loading}
                         >
-                            Войти
+                            Sign In
                         </button>
                         <button
                             className='btn grey lighten-1 black-text'
                             onClick={registerHandler}
                             disabled={loading}
                         >
-                            Регистрация
+                            Sign Up
                         </button>
                     </div>
                 </div>
